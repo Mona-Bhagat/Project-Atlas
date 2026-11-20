@@ -1,0 +1,16 @@
+# Synthetic retail data dictionary
+
+All timestamps are naive ISO 8601 strings, interpreted as UTC for the project. Monetary values are illustrative GBP amounts; do not use floating point for accounting production workloads.
+
+| Dataset | Primary key | Columns | Note |
+| --- | --- | --- | --- |
+| customers.csv | customer_id | customer_id, customer_name, region, signup_date, customer_status, updated_at | Mutable region/status |
+| products.csv | product_id | product_id, product_name, category, unit_price, is_active, updated_at | Mutable product attributes |
+| orders.csv | order_id | order_id, customer_id, order_date, order_status, updated_at | Mutable order status; foreign key customer_id |
+| order_items.csv | order_item_id | order_item_id, order_id, product_id, quantity, unit_price, updated_at | Foreign keys order_id/product_id; item unit_price is point-in-time sale value |
+
+Initial data: 100 customers, 25 products, 500 orders and multiple items per order.
+
+Incremental `batch_001` introduces 20 new orders and updates an existing order; `batch_002` updates the same order again and changes one customer region. These demonstrate updates and late-arriving corrections. Incremental files intentionally use the same dataset filenames as initial files; process from distinct batch folders or otherwise preserve unique source identity.
+
+Initial files should be the only four files uploaded for Part 1.
