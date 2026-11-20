@@ -12,3 +12,7 @@ Synthetic retail CSV → Lakehouse Files/landing → Fabric pipeline → Files/b
 2. **Part 2:** Lookup configuration → parameterised child pipeline.
 3. **Part 3:** Incremental batches, watermarks, deduplication and Delta MERGE.
 4. **Part 4:** Validation, audit trail, alerts, simulated failures and recovery.
+
+The packaged data is synthetic. Dates and identifiers are deterministic; timestamps are illustrative, not intended to represent current retail operations
+
+
