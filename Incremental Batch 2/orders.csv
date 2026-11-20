@@ -1,0 +1,2 @@
+order_id,customer_id,order_date,order_status,updated_at
+O000050,C0093,2026-10-07T06:47:00,Cancelled,2026-11-08T10:30:00
